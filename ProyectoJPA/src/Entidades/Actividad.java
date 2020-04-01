@@ -17,9 +17,22 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Entity implementation class for Entity: Actividad
+ *	-------- ENTIDAD ACTIVIDAD -------- 
  *
- */
+ *		- Atributos:
+ *			· ID_ACTIVIDAD	(PK/NOT NULL)
+ *			· F_INICIO		(NOT NULL)
+ *			· F_FIN 		(NOT NULL)
+ *			· DESCRIPCION  	(NOT NULL)
+ *			· AMBITO		(NOT NULL)
+ *
+ *		- Métodos:
+ *			· Constructor
+ *			· Getters y Setters de los atributos anteriormente listados
+ *			· HashCode y Equals
+ *			· Método toString
+ *
+ **/
 
 @Entity
 public class Actividad implements Serializable {

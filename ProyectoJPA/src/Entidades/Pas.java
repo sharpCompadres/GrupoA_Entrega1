@@ -5,9 +5,14 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 
 /**
- * Entity implementation class for Entity: Pas
+ *	-------- SUBENTIDAD DE USUARIO: PAS -------- 
  *
- */
+ *		- Atributos:
+ *			· TIPO_SERVICIO
+ *
+ *		- Método:
+ *			· Constructor
+ **/
 
 @Entity
 public class Pas extends Usuario implements Serializable {

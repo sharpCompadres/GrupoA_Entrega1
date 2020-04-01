@@ -7,10 +7,16 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+
 /**
- * Entity implementation class for Entity: Alumno
+ *	-------- SUBENTIDAD DE USUARIO: ALUMNO -------- 
  *
- */
+ *		- Atributos:
+ *			· GRADO_FACULTAD
+ *
+ *		- Método:
+ *			· Constructor
+ **/
 
 @Entity
 public class Alumno extends Usuario implements Serializable {

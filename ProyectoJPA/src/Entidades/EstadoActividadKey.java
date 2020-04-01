@@ -3,6 +3,10 @@ package Entidades;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+/**
+ *	-------- PKs TABLA ESTADOACTIVIDAD -------- 
+ **/
+
 @Embeddable
 public class EstadoActividadKey {
 

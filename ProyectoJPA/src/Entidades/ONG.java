@@ -9,9 +9,24 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 /**
- * Entity implementation class for Entity: ONG
- */
+ *	-------- ENTIDAD ONG -------- 
+ *
+ *		- Atributos:
+ *			· ID_ONG 		(PK/NOT NULL)
+ *			· NOMBRE		(NOT NULL)
+ *			· AMBITO		(NOT NULL)
+ *			· TELEFONO		(NOT NULL)
+ *			· EMAIL	  		(NOT NULL)
+ *
+ *		- Métodos
+ *			· Constructor
+ *			· Getters y Setters de los atributos anteriormente listados
+ *			· HashCode y Equals
+ *			· Método toString
+ *
+ **/
 
 @Entity
 public class ONG implements Serializable {

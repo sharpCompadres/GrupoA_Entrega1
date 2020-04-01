@@ -13,9 +13,23 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Entity implementation class for Entity: Usuario
+ *	-------- ENTIDAD USUARIO -------- 
  *
- */
+ *		- Atributos:
+ *			· DNI	 		(PK/NOT NULL)
+ *			· EMAIL			(NOT NULL)
+ *			· PASSWORD		(NOT NULL)
+ *			· NOMBRE		(NOT NULL)
+ *			· APELLIDOS 	(NOT NULL)
+ *			· F_NACIMIENTO  (NOT NULL)
+ *
+ *		- Métodos
+ *			· Constructor
+ *			· Getters y Setters de los atributos anteriormente listados
+ *			· HashCode y Equals
+ *			· Método toString
+ *
+ **/
 
 @Entity
 public class Usuario implements Serializable {

@@ -11,11 +11,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
-/**
- * Entity implementation class for Entity: EstadoActividad
- *
- */
 
+/**
+ *	-------- ENTIDAD ESTADOACTIVIDAD -------- 
+ *		(Tabla intermedia, atrib. de relación)
+ *
+ *		- Atributos:
+ *			· Respectivas claves primarias
+ *			· ESTADO	
+ *
+ *		- Método:
+ *			· Constructor
+ *
+ **/
 @Entity
 public class EstadoActividad implements Serializable {
 

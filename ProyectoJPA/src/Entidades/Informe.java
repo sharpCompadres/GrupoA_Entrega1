@@ -11,10 +11,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+
 /**
- * Entity implementation class for Entity: Informe
+ *	-------- ENTIDAD INFORME -------- 
  *
- */
+ *		- Atributos:
+ *			· ID_INFORME	(PK/NOT NULL)
+ *			· DESCRIPCION	(NOT NULL)
+ *			· CALIFICACION 		
+ *
+ *		- Métodos
+ *			· Constructor
+ *			· Getters y Setters de los atributos anteriormente listados
+ *			· HashCode y Equals
+ *			· Método toString
+ *
+ **/
 
 @Entity
 public class Informe implements Serializable {

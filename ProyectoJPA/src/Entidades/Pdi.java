@@ -8,10 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 /**
- * Entity implementation class for Entity: Pdi
+ *	-------- SUBENTIDAD DE USUARIO: PDI -------- 
  *
+ *		- Atributos:
+ *			· DEPARTAMENTO
+ *			· DESPACHO
  *
- */
+ *		- Método:
+ *			· Constructor
+ **/
+
 @Entity
 public class Pdi extends Usuario implements Serializable {
 
