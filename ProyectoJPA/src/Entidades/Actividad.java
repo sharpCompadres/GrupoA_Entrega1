@@ -1,0 +1,130 @@
+package Entidades;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+/**
+ * Entity implementation class for Entity: Actividad
+ *
+ */
+
+@Entity
+public class Actividad implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long ID_ACTIVIDAD;
+	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
+	private Date F_INICIO;
+	@Temporal(TemporalType.DATE)
+	@Column(nullable = false)
+	private Date F_FIN;
+	@Column(nullable = false)
+	private String DESCRIPCION;
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoActividad AMBITO;
+	@ManyToOne
+	private ONG ongs;
+	@OneToMany(mappedBy = "actividad")
+	Set<EstadoActividad> ESTADO;
+	
+	public Actividad() {
+		super();
+	}
+
+	public Long getID_ACTIVIDAD() {
+		return ID_ACTIVIDAD;
+	}
+
+	public void setID_ACTIVIDAD(Long iD_ACTIVIDAD) {
+		ID_ACTIVIDAD = iD_ACTIVIDAD;
+	}
+
+	@Override
+	public String toString() {
+		return "Actividad [ID_ACTIVIDAD=" + ID_ACTIVIDAD + ", F_INICIO=" + F_INICIO + ", F_FIN=" + F_FIN
+				+ ", DESCRIPCION=" + DESCRIPCION + ", AMBITO=" + AMBITO + ", ongs=" + ongs + ", ESTADO=" + ESTADO + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ID_ACTIVIDAD == null) ? 0 : ID_ACTIVIDAD.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Actividad other = (Actividad) obj;
+		if (ID_ACTIVIDAD == null) {
+			if (other.ID_ACTIVIDAD != null)
+				return false;
+		} else if (!ID_ACTIVIDAD.equals(other.ID_ACTIVIDAD))
+			return false;
+		return true;
+	}
+
+	public Date getF_INICIO() {
+		return F_INICIO;
+	}
+
+	public void setF_INICIO(Date f_INICIO) {
+		F_INICIO = f_INICIO;
+	}
+
+	public Date getF_FIN() {
+		return F_FIN;
+	}
+
+	public void setF_FIN(Date f_FIN) {
+		F_FIN = f_FIN;
+	}
+
+	public String getDESCRIPCION() {
+		return DESCRIPCION;
+	}
+
+	public void setDESCRIPCION(String dESCRIPCION) {
+		DESCRIPCION = dESCRIPCION;
+	}
+
+	public TipoActividad getAMBITO() {
+		return AMBITO;
+	}
+
+	public void setAMBITO(TipoActividad aMBITO) {
+		AMBITO = aMBITO;
+	}
+
+	public Set<EstadoActividad> getESTADO() {
+		return ESTADO;
+	}
+
+	public void setESTADO(Set<EstadoActividad> eSTADO) {
+		ESTADO = eSTADO;
+	}
+
+}
