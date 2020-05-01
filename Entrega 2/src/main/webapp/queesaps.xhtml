@@ -1,0 +1,63 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">APS</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet name="primeicons/primeicons.css"
+			library="primefaces" />
+		<h:form>
+			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+			<p:panel id="nosotros" header="¿Qué es ApS?"
+				style="margin-bottom:20px">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p>El aprendizaje-servicio es una propuesta educativa que
+						combina procesos de aprendizaje y de servicio a la comunidad en un
+						solo proyecto bien articulado, en el cual las y los participantes
+						se forman al implicarse en necesidades reales del entorno con la
+						finalidad de mejorarlo.</p>
+
+					<p>Las prácticas de aprendizaje-servicio se revelan
+						extraordinariamente valiosas, al acercar a los y las estudiantes
+						al mundo real; al retar su capacidad creativa y emprendedora en
+						resolver problemas por sí mismas y darles confianza en hacerlo; al
+						poner a trabajar conjuntamente los centros educativos con las
+						entidades sociales de un territorio.</p>
+
+					<p>El ApS es una manera de unir éxito educativo y compromiso
+						social: aprender a ser competentes siendo útiles a los demás. Es
+						sencillo y es poderoso. Y no es un invento, sino un
+						descubrimiento, porque pone en valor buenas prácticas que están ya
+						en el corazón de la educación integral y comprometida.</p>
+
+					<p>Un proyecto de aprendizaje-servicio es una doble herramienta
+						y, por ello, doblemente valiosa: un proyecto integral de educación
+						para la ciudadanía que fortalece la comunidad porque fomenta el
+						capital social, es decir: estimula el trabajo en redes, explicita
+						y consolida los valores y normas que aportan cohesión social, y
+						contribuye a crear confianza y seguridad entre la población.</p>
+
+					<p>Y es algo más que una herramienta, porque se inspira en la
+						ética del cuidado, de la responsabilidad que contrae cada persona
+						con los demás. La ética imprescindible en el siglo XXI, que
+						entiende el mundo como una red de relaciones donde el valor
+						central es la responsabilidad: la persona tiene el deber moral de
+						ayudar a las demás y supeditar su bienestar e intereses
+						particulares al bienestar e intereses de la colectividad.</p>
+
+					<p>Es pues, también, una filosofía educativa, que considera que
+						si la educación no sirve para mejorar el mundo, entonces no sirve
+						para nada.</p>
+
+					<p align="center">
+						<img src="./resources/img/estudiante.jpg" id="logo"
+							alt="logo de APS" height="320" width="570" align="middle"></img>
+					</p>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,67 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">LISTA DE ACTIVIDADES</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet name="primeicons/primeicons.css"
+			library="primefaces" />
+		<style type="text/css">
+.logo {
+	
+}
+
+.detail {
+	width: 200px;
+	padding-left: 25px;
+}
+
+.command {
+	padding-left: 25px;
+}
+
+ul.ui-datalist-data {
+	padding-inline-start: 0px;
+}
+</style>
+		<h:form id="opiniones">
+			<table>
+				<tr>
+					<td>Nombre:</td>
+					<td><h:inputText value="#{listaOpiniones.nombre}" /></td>
+				</tr>
+				<tr>
+					<td>Opinion:</td>
+					<td><h:inputText value="#{listaOpiniones.opinion}" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><h:commandButton value="Publicar"
+							action="#{listaOpiniones.aniadirOpinion()}" /></td>
+				</tr>
+			</table>
+		</h:form>
+		<h:form id="form">
+			<p:messages id="messages" />
+			<p:dataList value="#{listaOpiniones.getTodasOpiniones()}"
+				var="opinion" style="width:600px" paginator="true" rows="5"
+				pageLinks="5"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+				<h:panelGrid columns="3" columnClasses="logo,detail,command">
+
+					<p:outputPanel>
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Nombre:" style="font-weight: bold" />
+							<h:outputText value="#{opinion.nombre}" />
+
+							<h:outputText value="Descripción: " style="font-weight: bold" />
+							<h:outputText value="#{opinion.opinion}" />
+						</h:panelGrid>
+					</p:outputPanel>
+				</h:panelGrid>
+			</p:dataList>
+		</h:form>
+	</ui:define>
+</ui:composition>

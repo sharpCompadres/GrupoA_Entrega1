@@ -17,6 +17,6 @@
 			<property name="javax.persistence.jdbc.password" value="siipassword"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			<property name="eclipselink.jdbc.exclusive-connection.mode" value="Always"/>
-		</properties>
+		</properties>	
 	</persistence-unit>
 </persistence>

@@ -31,17 +31,17 @@ public class EstadoActividad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	EstadoActividadKey id;
+	private EstadoActividadKey id;
 	
 	@ManyToOne
 	@MapsId("user_id")
 	@JoinColumn(name = "DNI")
-	Usuario usuario;
+	private Usuario usuario;
 	
 	@ManyToOne
 	@MapsId("act_id")
 	@JoinColumn(name = "ID_ACTIVIDAD")
-	Actividad actividad;
+	private Actividad actividad;
 	
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
@@ -51,5 +51,4 @@ public class EstadoActividad implements Serializable {
 	public EstadoActividad() {
 		super();
 	}
-   
 }

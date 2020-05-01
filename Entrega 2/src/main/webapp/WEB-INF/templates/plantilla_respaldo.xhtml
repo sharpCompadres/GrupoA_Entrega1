@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+	<title><ui:insert name="title">Facelets Template</ui:insert></title>
+</h:head>
+
+<h:body>
+	<p>
+		<img src="./resources/img/logo.png" id="logo" alt="logo de APS"
+			height="90" width="210"></img>
+	</p>
+
+	<h:outputStylesheet name="primeicons/primeicons.css"
+		library="primefaces" />
+	<ui:insert name="menu">
+		<h:form>
+			<c:choose>
+				<c:when test="#{controlAutorizacion.usuario.rol == 'USUARIO'}">
+					<p:growl id="messages" />
+					<p:menubar>
+						<p:menuitem value="#{controlAutorizacion.usuario.nombre}" />
+						<p:menuitem value="Home" icon="pi pi-home"
+							action="#{controlAutorizacion.home()}" />
+						<p:menuitem value="Lista de Actividades" icon="pi pi-list"
+							action="#{controlAutorizacion.listaActividades()}" />
+						<p:menuitem value="¿Qué es ApS?" icon="pi pi-users"
+							action="#{controlAutorizacion.queEsAps()}" />
+						<p:menuitem value="ONG Feedback" icon="pi pi-globe"
+							action="#{controlAutorizacion.opiniones()}" />
+						<p:submenu label="Contacto" icon="pi pi-question">
+							<p:menuitem value="Sobre nosotros"
+								action="#{controlAutorizacion.contacto()}" />
+							<p:menuitem value="Ayuda" action="#{controlAutorizacion.ayuda()}" />
+						</p:submenu>
+						<p:menuitem value="Salir" icon="pi pi-sign-out"
+							action="#{controlAutorizacion.logout()}"></p:menuitem>
+					</p:menubar>
+				</c:when>
+				<c:when test="#{controlAutorizacion.pas != null}">
+					<p:growl id="messages" />
+					<p:menubar>
+						<p:menuitem value="#{controlAutorizacion.pas.nombre}" />
+						<p:menuitem value="Home" icon="pi pi-home"
+							action="#{controlAutorizacion.home()}" />
+						<p:menuitem value="Lista de Actividades" icon="pi pi-list"
+							action="#{controlAutorizacion.listaActividades()}" />
+						<p:menuitem value="¿Qué es ApS?" icon="pi pi-users"
+							action="#{controlAutorizacion.queEsAps()}" />
+						<p:menuitem value="ONG Feedback" icon="pi pi-globe"
+							action="#{controlAutorizacion.opiniones()}" />
+						<p:submenu label="Contacto" icon="pi pi-question">
+							<p:menuitem value="Sobre nosotros"
+								action="#{controlAutorizacion.contacto()}" />
+							<p:menuitem value="Ayuda" action="#{controlAutorizacion.ayuda()}" />
+						</p:submenu>
+						<p:menuitem value="Salir" icon="pi pi-sign-out"
+							action="#{controlAutorizacion.logout()}"></p:menuitem>
+					</p:menubar>
+				</c:when>
+				<c:when test="#{controlAutorizacion.pdi != null}">
+					<p:growl id="messages" />
+					<p:menubar>
+						<p:menuitem value="#{controlAutorizacion.pdi.nombre}" />
+						<p:menuitem value="Home" icon="pi pi-home"
+							action="#{controlAutorizacion.home()}" />
+						<p:menuitem value="Lista de Actividades" icon="pi pi-list"
+							action="#{controlAutorizacion.listaActividades()}" />
+						<p:menuitem value="¿Qué es ApS?" icon="pi pi-users"
+							action="#{controlAutorizacion.queEsAps()}" />
+						<p:menuitem value="ONG Feedback" icon="pi pi-globe"
+							action="#{controlAutorizacion.opiniones()}" />
+						<p:submenu label="Contacto" icon="pi pi-question">
+							<p:menuitem value="Sobre nosotros"
+								action="#{controlAutorizacion.contacto()}" />
+							<p:menuitem value="Ayuda" action="#{controlAutorizacion.ayuda()}" />
+						</p:submenu>
+						<p:submenu label="Actividades tutorizadas" icon="pi pi-bookmark">
+							<p:menuitem value="Generar informe" url="#" />
+							<p:menuitem value="Evaluar" url="#" />
+						</p:submenu>
+						<p:menuitem value="Salir" icon="pi pi-sign-out"
+							action="#{controlAutorizacion.logout()}"></p:menuitem>
+					</p:menubar>
+				</c:when>
+				<c:when
+					test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR' }">
+					<p:growl id="messages" />
+					<p:menubar>
+						<p:menuitem value="#{controlAutorizacion.usuario.nombre}" />
+						<p:menuitem value="Home" icon="pi pi-home"
+							action="#{controlAutorizacion.home()}" />
+						<p:submenu label="Lista de Actividades" icon="pi pi-list">
+							<p:menuitem value="Añadir Actividad" action="#{controlAutorizacion.aniadirActividad()}" />
+							<p:menuitem value="Lista Actividades"
+								action="#{controlAutorizacion.listaActividades()}" />
+						</p:submenu>
+						<p:menuitem value="¿Qué es ApS?" icon="pi pi-users"
+							action="#{controlAutorizacion.queEsAps()}" />
+						<p:menuitem value="ONG Feedback" icon="pi pi-globe"
+							action="#{controlAutorizacion.opiniones()}" />
+						<p:submenu label="Contacto" icon="pi pi-question">
+							<p:menuitem value="Sobre nosotros"
+								action="#{controlAutorizacion.contacto()}" />
+							<p:menuitem value="Ayuda" action="#{controlAutorizacion.ayuda()}" />
+						</p:submenu>
+						<p:submenu label="Actividades tutorizadas" icon="pi pi-bookmark">
+							<p:menuitem value="Generar informe" url="#" />
+							<p:menuitem value="Evaluar" url="#" />
+						</p:submenu>
+						<p:menuitem value="Salir" icon="pi pi-sign-out"
+							action="#{controlAutorizacion.logout()}"></p:menuitem>
+					</p:menubar>
+				</c:when>
+				<c:otherwise>
+					<p:growl id="messages" />
+					<p:menubar>
+						<p:menuitem value="Home" icon="pi pi-home"
+							action="#{controlAutorizacion.home()}" />
+						<p:menuitem value="Lista de Actividades" icon="pi pi-list"
+							action="#{controlAutorizacion.listaActividades()}" />
+						<p:menuitem value="¿Qué es ApS?" icon="pi pi-users"
+							action="#{controlAutorizacion.queEsAps()}" />
+						<p:menuitem value="ONG Feedback" icon="pi pi-globe"
+							action="#{controlAutorizacion.opiniones()}" />
+						<p:submenu label="Contacto" icon="pi pi-question">
+							<p:menuitem value="Sobre nosotros"
+								action="#{controlAutorizacion.contacto()}" />
+							<p:menuitem value="Ayuda" action="#{controlAutorizacion.ayuda()}" />
+						</p:submenu>
+						<p:menuitem value="Entrar" icon="pi pi-sign-in"
+							action="#{controlAutorizacion.login()}"></p:menuitem>
+					</p:menubar>
+				</c:otherwise>
+			</c:choose>
+		</h:form>
+	</ui:insert>
+	<div id="content" class="center_content">
+		<ui:insert name="content">Content</ui:insert>
+	</div>
+</h:body>
+
+</html>

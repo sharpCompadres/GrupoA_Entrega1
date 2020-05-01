@@ -37,15 +37,19 @@ public class Informe implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ID_INFORME;
+	
 	@Column(nullable = false)
 	private String DESCRIPCION;
+	
 	private Float CALIFICACION;
+	
 	@ManyToOne
 	private Alumno alumno;
+	
 	@ManyToOne
 	private Pdi pdi;
+	
 	@OneToOne
-	@Id
 	@PrimaryKeyJoinColumn(name="FK_DEBIL_ACTIVIDAD", referencedColumnName="ID_ACTIVIDAD")
 	private Actividad act;
 	public Informe() {

@@ -1,0 +1,43 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">APS</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet name="primeicons/primeicons.css"
+			library="primefaces" />
+		<h:form>
+			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+			<p:panel id="nosotros" header="Sobre nosotros"
+				style="margin-bottom:20px">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p>
+						<h:outputText
+							value="Somos los SharpCompadres, un grupo de estudiantes de E.T.S de Ingeniería Informática de la Universidad de Málaga.
+                             El desarrollo de este proyecto es para la asignatura Sistemas de Información para Internet, en el cual implementamos 
+                             esta página para que sirva como plataforma del sistema de APS que la UMA quiere implantar. Este equipo está compuesto
+                             por: " />
+					</p>
+					<p>
+						<strong>Alberto Alonso:</strong> albertoalonsogomez@uma.es
+					</p>
+					<p>
+						<strong>Cindy Polanco:</strong> cindy@uma.es
+					</p>
+					<p>
+						<strong>Ernesto Entrambasaguas:</strong> eed@uma.es
+					</p>
+					<p>
+						<strong>Jose Antonio Coronado:</strong> jact@uma.es
+					</p>
+					<p>
+						<strong>Omar David Jara:</strong> omarjara@uma.es
+					</p>
+
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+	<title>Login V15</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" type="image/png"
+		href="bootstrap/login/images/icons/favicon.ico" />
+
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/vendor/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/vendor/animate/animate.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/vendor/css-hamburgers/hamburgers.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/vendor/animsition/css/animsition.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/vendor/select2/select2.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/vendor/daterangepicker/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/css/util.css" />
+	<link rel="stylesheet" type="text/css"
+		href="bootstrap/login/css/main.css" />
+</h:head>
+
+<h:body>
+	<c:choose>
+		<c:when test="#{controlAutorizacion.usuario == null}">
+			<div class="limiter">
+				<div class="container-login100">
+					<div class="wrap-login100">
+						<div class="login100-form-title"
+							style="background-image: url(bootstrap/login/images/bg-01.jpg);">
+							<span class="login100-form-title-1"> Sign In </span>
+						</div>
+						<h:form class="login100-form" id="login">
+							<div class="wrap-input100 m-b-26">
+								<span class="label-input100">Username</span>
+								<h:inputText value="#{login.DNI}" />
+								<span class="focus-input100"></span>
+							</div>
+							<div class="wrap-input100 m-b-18">
+								<span class="label-input100">Password</span>
+								<h:inputSecret value="#{login.contrasenia}" />
+								<span class="focus-input100"></span>
+							</div>
+							<div class="container-login100-form-btn">
+								<h:commandButton class="login100-form-btn"
+									action="#{login.autenticar()}" value="Entrar" />
+							</div>
+							<div>
+								<h:link outcome="/inicio" value="Atrás"></h:link>
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<p>Debe salir de la aplicación si quiere entrar como otro usuario</p>
+		</c:otherwise>
+	</c:choose>
+
+	<script src="bootstrap/login/vendor/jquery/jquery-3.2.1.min.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+
+	<script src="bootstrap/login/vendor/animsition/js/animsition.min.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+
+	<script src="bootstrap/login/vendor/bootstrap/js/popper.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+	<script src="bootstrap/login/vendor/bootstrap/js/bootstrap.min.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+
+	<script src="bootstrap/login/vendor/select2/select2.min.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+
+	<script src="bootstrap/login/vendor/daterangepicker/moment.min.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+	<script src="bootstrap/login/vendor/daterangepicker/daterangepicker.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+
+	<script src="bootstrap/login/vendor/countdowntime/countdowntime.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+
+	<script src="bootstrap/login/js/main.js"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+
+	<script
+		src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
+		type="be0a4f20b7edf97e435bd7c3-text/javascript"></script>
+	<script type="be0a4f20b7edf97e435bd7c3-text/javascript">
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+	<script
+		src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+		data-cf-settings="be0a4f20b7edf97e435bd7c3-|49" defer=""></script>
+</h:body>
+</html>

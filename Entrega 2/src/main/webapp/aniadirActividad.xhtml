@@ -1,0 +1,43 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	<ui:define name="title">Autenticando</ui:define>
+	<ui:define name="content">
+		<c:choose>
+			<c:when test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
+				<h:form id="login">
+					<table>
+						<tr>
+							<td>Nombre:</td>
+							<td><h:inputText value="#{listaActividades.nombre}" /></td>
+						</tr>
+						<tr>
+							<td>Descripcion:</td>
+							<td><h:inputText value="#{listaActividades.descr}" /></td>
+						</tr>
+						<tr>
+							<td>Ambito:</td>
+							<td><h:selectOneMenu value="#{listaActividades.t_a}">
+									<f:selectItem itemValue="VOLUNTARIADO" itemLabel="Voluntariado" />
+									<f:selectItem itemValue="SERVICIO_DE_APRENDIZAJE"
+										itemLabel="Servicio de Aprendizaje" />
+									<f:selectItem itemValue="EVALUABLE" itemLabel="Evaluable" />
+								</h:selectOneMenu></td>
+							<td><h:commandButton value="Enviar"
+									action="#{listaActividades.aniadirActividad()}" /></td>
+						</tr>
+
+					</table>
+				</h:form>
+			</c:when>
+			<c:otherwise>
+				<p>Solamente puede hacerlo un administrador</p>
+			</c:otherwise>
+		</c:choose>
+		<h:messages />
+	</ui:define>
+</ui:composition>
+
