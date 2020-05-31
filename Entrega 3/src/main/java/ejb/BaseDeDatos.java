@@ -283,12 +283,7 @@ public class BaseDeDatos implements BaseDeDatosLocal {
 	 * 
 	 */
 
-	@Override
-	public Usuario usuarioCompleto(Usuario u) throws ASMException {
-		compruebaLogin(u);
-		Usuario usu = em.find(Usuario.class, u.getDNI());
-		return usu;
-	}
+
 
 	/**
 	 * Elimina de la base de datos el usuario pasado por parámetro

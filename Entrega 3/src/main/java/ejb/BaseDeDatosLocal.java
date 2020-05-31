@@ -42,7 +42,6 @@ public interface BaseDeDatosLocal {
 
 	Pdi refrescarPdi(Pdi p) throws ASMException;
 
-	Usuario usuarioCompleto(Usuario u) throws ASMException;
 
 	List<Opinion> getTodasOpiniones();
 

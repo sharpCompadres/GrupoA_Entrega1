@@ -103,7 +103,7 @@ public class Login {
 
 		try {
 			Usuario usuario = new Usuario(getDNI(), getContrasenia());
-			usuario = bbdd.usuarioCompleto(usuario);
+			usuario = bbdd.refrescarUsuario(usuario);
 			Rol rol = usuario.getRol();
 
 			if (rol == Rol.PAS) {

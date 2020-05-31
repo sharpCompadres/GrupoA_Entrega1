@@ -41,7 +41,7 @@
 									<h:outputText value="Estado de la solicitud"
 										style="font-weight: bold" />
 									<h:outputText
-										value="#{listaActividades.estadoSolicitud(actividad,controlAutorizacion.usuario)}"
+										value="#{listaActividades.estadoSolicitudEntidad(actividad,controlAutorizacion.usuario).getESTADO()}"
 										readonlyInput="true" />
 									<h:outputText value="Tutor" style="font-weight: bold" />
 									<h:outputText
