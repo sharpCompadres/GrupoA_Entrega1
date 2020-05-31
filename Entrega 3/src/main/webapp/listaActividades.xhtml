@@ -1,0 +1,83 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">LISTA DE ACTIVIDADES</ui:define>
+	<ui:define name="content">
+		<h:form id="form">
+			<p:dataList value="#{listaActividades.getTodasActividades()}"
+				var="actividad" style="width:600px" paginator="true" rows="5"
+				pageLinks="5"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+				<h:panelGrid columns="3" columnClasses="logo,detail,command">
+					<p:outputPanel>
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Actividad:" style="font-weight: bold" />
+							<h:outputText value="#{actividad.NOMBRE}" />
+
+							<h:outputText value="Descripción: " style="font-weight: bold" />
+							<h:outputText value="#{actividad.DESCRIPCION}" />
+
+							<h:outputText value="Fecha de Inicio (AÑO/MES/DÍA)"
+								style="font-weight: bold" />
+							<h:outputText value="#{actividad.getF_INICIO()}"
+								readonlyInput="true" />
+
+							<h:outputText value="Fecha de Fin (AÑO/MES/DÍA)"
+								style="font-weight: bold" />
+							<h:outputText value="#{actividad.getF_FIN()}"
+								readonlyInput="true" />
+							<h:outputText value="ONG" style="font-weight: bold" />
+							<h:outputText value="#{actividad.getOng().NOMBRE}"
+								readonlyInput="true" />
+							<h:outputText value="Tutor" style="font-weight: bold" />
+							<h:outputText
+								value="#{actividad.getProfesor().nombre} #{actividad.getProfesor().apellido1} #{actividad.getProfesor().apellido2}"
+								readonlyInput="true" />
+
+							<h:outputText value="Tipo:" style="font-weight: bold" />
+
+							<h:outputText value="Voluntariado"
+								rendered="#{actividad.AMBITO == 'VOLUNTARIADO'}" />
+							<h:outputText value="Evaluable"
+								rendered="#{actividad.AMBITO == 'EVALUABLE'}" />
+							<h:outputText value="Servicio de Aprendizaje"
+								rendered="#{actividad.AMBITO == 'SERVICIO_DE_APRENDIZAJE'}" />
+
+							<c:choose>
+								<c:when test="#{controlAutorizacion.pas != null}">
+									<h:commandButton
+										action="#{listaActividades.inscripcion(actividad)}"
+										value="Inscribirse" />
+								</c:when>
+								<c:when test="#{controlAutorizacion.pdi != null}">
+									<h:commandButton
+										action="#{listaActividades.inscripcion(actividad)}"
+										value="Inscribirse" />
+								</c:when>
+								<c:when test="#{controlAutorizacion.usuario.rol == 'USUARIO'}">
+									<h:commandButton
+										action="#{listaActividades.inscripcion(actividad)}"
+										value="Inscribirse" />
+								</c:when>
+								<c:otherwise>
+									<c:if
+										test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
+										<h:commandButton
+											action="#{listaActividades.eliminar(actividad)}"
+											value="Eliminar" />
+									</c:if>
+								</c:otherwise>
+							</c:choose>
+						</h:panelGrid>
+					</p:outputPanel>
+				</h:panelGrid>
+			</p:dataList>
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>

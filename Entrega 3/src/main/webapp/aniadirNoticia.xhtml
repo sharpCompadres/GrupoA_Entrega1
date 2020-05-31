@@ -1,0 +1,78 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">Opiniones</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet name="primeicons/primeicons.css"
+			library="primefaces" />
+		<style type="text/css">
+.logo {
+	
+}
+
+.detail {
+	width: 200px;
+	padding-left: 25px;
+}
+
+.command {
+	padding-left: 25px;
+}
+
+ul.ui-datalist-data {
+	padding-inline-start: 0px;
+}
+</style>
+		<c:choose>
+			<c:when test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
+				<h:form id="opiniones">
+					<table>
+						<tr>
+							<td>Titular:</td>
+							<td><h:inputText value="#{listaNoticias.titular}" /></td>
+						</tr>
+						<tr>
+							<td>Cuerpo de la noticia:</td>
+							<td><h:inputTextarea value="#{listaNoticias.cuerpo}" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><h:commandButton value="Publicar"
+									action="#{listaNoticias.aniadirNoticia()}" /></td>
+						</tr>
+					</table>
+				</h:form>
+				<h:form id="form">
+					<p:messages id="messages" />
+					<p:dataList value="#{listaNoticias.getTodasNoticias()}"
+						var="noticia" style="width:600px" paginator="true" rows="5"
+						pageLinks="5"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+						<h:panelGrid columns="3" columnClasses="logo,detail,command">
+
+							<p:outputPanel>
+								<h:panelGrid columns="2" cellpadding="5">
+									<h:outputText value="Titular:" style="font-weight: bold" />
+									<h:outputText value="#{noticia.titular}" />
+
+									<h:outputText value="Cuerpo: " style="font-weight: bold" />
+									<h:outputText value="#{noticia.cuerpo}" />
+
+
+									<h:commandButton value="Eliminar"
+										action="#{listaNoticias.eliminarNoticia(noticia)}" />
+								</h:panelGrid>
+							</p:outputPanel>
+						</h:panelGrid>
+					</p:dataList>
+				</h:form>
+			</c:when>
+			<c:otherwise>
+				<ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml" />
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+</ui:composition>

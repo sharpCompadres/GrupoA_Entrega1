@@ -1,0 +1,61 @@
+
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">Añadir usuarios</ui:define>
+	<ui:define name="content">
+		<c:choose>
+			<c:when test="#{controlAutorizacion.usuario == null}">
+				<h:form id="login">
+					<h:panelGrid>
+						<h:outputLabel value="Nombre:" />
+						<h:inputText value="#{login.nombre}" />
+						<h:outputLabel value="Apellido 1:" />
+						<h:inputText value="#{login.apellido1}" />
+						<h:outputLabel value="Apellido 2:" />
+						<h:inputText value="#{login.apellido2}" />
+						<h:outputLabel value="Correo Electrónico:" />
+						<h:inputText value="#{login.email}" />
+						<h:outputLabel value="Contraseña:" />
+						<h:inputSecret value="#{login.contrasenia}" />
+						<h:outputLabel value="DNI:" />
+						<h:inputText value="#{login.DNI}" />
+						<h:outputLabel value="Fecha de Nacimiento:" />
+						<p:calendar id="button2" value="#{login.f_nacimiento}"
+							pattern="dd/MM/yyyy" />
+						<h:outputLabel value="Rol:" />
+						<h:selectOneMenu value="#{login.rol}" id="tipo">
+							<f:selectItem itemValue="USUARIO" itemLabel="Usuario plano" />
+							<f:selectItem itemValue="PAS" itemLabel="PAS" />
+							<f:selectItem itemValue="UPDI" itemLabel="PDI" />
+							<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador" />
+							<f:ajax execute="@this" render="risas" immediate="true" />
+						</h:selectOneMenu>
+						<h:outputLabel
+							value="Rellenar los siguientes campos sólo si procede: " />
+						<h:outputLabel value="Tipo de servicio (PAS)" />
+						<h:inputText value="#{login.t_servicio}" />
+						<h:outputLabel value="Despacho (PDI)" />
+						<h:inputText value="#{login.despacho}" />
+						<h:outputLabel value="Departamento (PDI)" />
+						<h:inputText value="#{login.departamento}" />
+
+
+						<h:commandButton value="Enviar"
+							action="#{login.aniadirUsuario(login.usuario)}" />
+
+					</h:panelGrid>
+				</h:form>
+			</c:when>
+			<c:otherwise>
+				<p>Ya está registrado, no puede re-registrarse</p>
+			</c:otherwise>
+		</c:choose>
+		<h:messages />
+	</ui:define>
+</ui:composition>
+

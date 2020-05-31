@@ -1,0 +1,56 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">APS</ui:define>
+	<ui:define name="content">
+		<h:outputStylesheet name="primeicons/primeicons.css"
+			library="primefaces" />
+		<h:form>
+			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+			<p:panel id="nosotros" header="Ayuda" style="margin-bottom:20px">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p>
+						<h:outputText value="¿Puede participar todo el mundo? "
+							style="font-weight: bold" />
+					</p>
+					<p>
+						<h:outputText
+							value="No. Para participar es necesario pertenecer a la UMA. " />
+					</p>
+					<p>
+						<h:outputText
+							value="¿Para quienes va dirigido el programa de APS? "
+							style="font-weight: bold" />
+					</p>
+					<p>
+						<h:outputText
+							value="Está especialmente pensado para alumnos y profesores que pertenezcan a Medicina.  " />
+					</p>
+					<p>
+						<h:outputText
+							value="¿Se ven las actividades reflejadas en mi expediente? "
+							style="font-weight: bold" />
+					</p>
+					<p>
+						<h:outputText
+							value="Sí, el programa APS que pretende implantar la UMA incluye una evaluación. " />
+					</p>
+					<p>
+						<h:outputText value="¿Dónde puedo encontrar más información? "
+							style="font-weight: bold" />
+					</p>
+					<p>
+						<h:outputText
+							value="Toda la información que desee está disponible en la página web de la UMA: www.uma.es
+                                            también pueden contactar a través del correo info@uma.es o llamando al 952365877" />
+					</p>
+
+
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
