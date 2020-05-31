@@ -26,7 +26,7 @@
 									<h:outputText value="Estado solicitud: "
 										style="font-weight: bold" />
 									<h:outputText
-										value="#{listaActividades.estadoSolicitud(controlAutorizacion.act,usuario)}"
+										value="#{listaActividades.estadoSolicitudEntidad(controlAutorizacion.act,usuario).getESTADO()}"
 										readonlyInput="true" />
 									<h:commandButton
 										action="#{listaActividades.aceptarUno(usuario,controlAutorizacion.act)}"

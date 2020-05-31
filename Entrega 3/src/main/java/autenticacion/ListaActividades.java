@@ -178,20 +178,6 @@ public class ListaActividades implements Serializable {
 		return bbdd.getONGs();
 	}
 
-	public T_Estado estadoSolicitud(Actividad act, Usuario usu) {
-		List<EstadoSolicitud> todos = bbdd.getTodosEstadosSolicitud();
-		T_Estado aux = null;
-		boolean salir = false;
-		for (EstadoSolicitud es : todos) {
-			if (es.getUsuario().getDNI().equals(usu.getDNI())
-					&& es.getActividad().getID_ACTIVIDAD().equals(act.getID_ACTIVIDAD()) && !salir) {
-				aux = es.getESTADO();
-				salir = true;
-			}
-		}
-		return aux;
-	}
-
 	public EstadoSolicitud estadoSolicitudEntidad(Actividad act, Usuario usu) {
 		List<EstadoSolicitud> todos = bbdd.getTodosEstadosSolicitud();
 		EstadoSolicitud aux = new EstadoSolicitud();
@@ -202,7 +188,7 @@ public class ListaActividades implements Serializable {
 				aux = es;
 				salir = true;
 			}
-		}
+		}			
 		return aux;
 	}
 
