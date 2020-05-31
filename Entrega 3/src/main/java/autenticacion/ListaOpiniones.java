@@ -4,9 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ejb.ASMException;
 import ejb.BaseDeDatosLocal;
 import modelo.Opinion;
 
@@ -64,7 +67,12 @@ public class ListaOpiniones implements Serializable {
 
 	public void aniadirOpinion() {
 		opi = new Opinion(nombre, opinion);
-		bbdd.aniadirOpinion(opi);
+		try {
+			bbdd.aniadirOpinion(opi);
+		} catch (ASMException e) {
+			FacesMessage fm = new FacesMessage("Error: " + e);
+			FacesContext.getCurrentInstance().addMessage(null, fm);
+		}
 		opi = new Opinion();
 	}
 

@@ -274,16 +274,6 @@ public class BaseDeDatos implements BaseDeDatosLocal {
 
 	}
 
-	/**
-	 * Devuelve el Usuario completo desde el objeto Usuario que solo tiene DNI y
-	 * Contraseña que se le pasa por parámetro
-	 * 
-	 * @param u
-	 * @return Usuario
-	 * 
-	 */
-
-
 
 	/**
 	 * Elimina de la base de datos el usuario pasado por parámetro
@@ -323,10 +313,13 @@ public class BaseDeDatos implements BaseDeDatosLocal {
 	 * 
 	 * @param opi
 	 * @return
-	 * 
+	 * @throws ASMException
 	 */
 
-	public void aniadirOpinion(Opinion opi) {
+	public void aniadirOpinion(Opinion opi) throws ASMException {
+		if(opi.getNombre().isEmpty() || opi.getOpinion().isEmpty()) {
+			throw new ASMException ("Ni la opinión ni el nombre pueden estar vacíos");
+		}
 		em.persist(em.merge(opi));
 	}
 
@@ -409,7 +402,7 @@ public class BaseDeDatos implements BaseDeDatosLocal {
 	}
 
 	/**
-	 * Devuelve un objeto ONG de la base de datos
+	 * Devuelve un objeto ONG completo de la base de datos dado su NIF
 	 * 
 	 * @param ong_elegida
 	 * @return ONG
@@ -509,7 +502,7 @@ public class BaseDeDatos implements BaseDeDatosLocal {
 	/**
 	 * Acepta a un Usuario usu en una Actividad act
 	 * 
-	 * @param usu, act
+	 * @param es
 	 * @return
 	 * @throws ASMException
 	 * 
@@ -531,7 +524,7 @@ public class BaseDeDatos implements BaseDeDatosLocal {
 	 * 
 	 * Rechaza a un Usuario usu en una Actividad act
 	 * 
-	 * @param usu, act
+	 * @param es
 	 * @return
 	 * @throws ASMException
 	 * 

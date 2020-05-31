@@ -45,7 +45,7 @@ public interface BaseDeDatosLocal {
 
 	List<Opinion> getTodasOpiniones();
 
-	void aniadirOpinion(Opinion opi);
+	void aniadirOpinion(Opinion opi) throws ASMException;
 
 	void eliminarOpinion(Opinion opi);
 
